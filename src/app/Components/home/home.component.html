@@ -1,0 +1,16 @@
+<main>
+    <h1>ChoiceMaker</h1>
+
+    <section>
+        <button (click)="setActive(false)">Saved List</button>
+        <button (click)="setActive(true)">Temp List</button>
+    </section>
+
+    <section *ngIf="isActive">
+        <h2>Create temp list</h2>
+    </section>
+
+    <section *ngIf="!isActive">
+        <h2>Choose saved list</h2>
+    </section>
+</main>

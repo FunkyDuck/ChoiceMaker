@@ -1,0 +1,47 @@
+<main>
+    <h1>Manage List</h1>
+    <button (click)="displayCreate(!isCreate)" class="largeBtn">
+        <span *ngIf="!isCreate">Create List</span>
+        <span *ngIf="isCreate">Back</span>
+    </button>
+
+    <form *ngIf="isCreate" [formGroup]="listForm">
+        <h2>New List</h2>
+        <label for="name">List Name</label> :
+        <input type="text" name="name" id="name" formControlName="name" value="{{listForm.value.name}}">
+        <button (click)="createList()">Create</button>
+    </form>
+
+    <section *ngIf="!isCreate">
+        <ul>
+            <li *ngFor="let item of lists">
+                <span>{{item.name}}</span>
+                <button (click)="displayList(true, item.name)">
+                    <i class="bi bi-eye"></i>
+                </button>
+
+                <button (click)="displayAdd(true, item.name)">
+                    <i class="bi bi-plus-circle"></i>
+                </button>
+
+                <button (click)="deleteToStorage(item.name)">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </li>
+        </ul>
+
+        <form *ngIf="isAddValue" [formGroup]="listForm">
+            <h2>Add element to list : {{addListKey}}</h2>
+            <label for="name">Item</label> :
+            <input type="text" name="name" id="name" formControlName="name" value="{{listForm.value.name}}">
+            <button (click)="addToList(addListKey)">Add</button>
+        </form>
+
+        <ul *ngIf="isDisplay">
+            <li>
+                <h2>{{addListKey}}</h2>
+            </li>
+            <li *ngFor="let item of itemsList">{{item}}</li>
+        </ul>
+    </section>
+</main>

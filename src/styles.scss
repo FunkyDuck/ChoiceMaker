@@ -1,1 +1,92 @@
-/* You can add global styles to this file, and also import other style files */
+// Imports
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+// Variables
+$thGreenMenu: #239b56;
+$thGreenMenuTxt: #d5f5e3;
+
+// CSS
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    margin: 0 2vw;
+}
+
+nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    color: $thGreenMenuTxt;
+    background-color: $thGreenMenu;
+}
+
+nav > a {
+    display: block;
+    margin: 1vh 1vw;
+    width: 30vw;
+    flex: 1;
+    text-align: center;
+    color: $thGreenMenuTxt;
+}
+
+nav a i {
+    line-height: 2vh;
+    font-size: 1.5rem;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 1vh 0;
+    color: $thGreenMenu;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: $thGreenMenu;
+}
+
+.largeBtn {
+    width: 100%;
+    margin: 1vh 0;
+}
+
+button {
+    background: $thGreenMenu;
+    border: none;
+    border-radius: 4px;
+    color: $thGreenMenuTxt;
+    margin: 0.25vh 0.5vw;
+    padding: 0.25vh 1vw;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+}
+
+ul li {
+    display: flex;
+    flex-direction: row;
+}
+
+ul li > * {
+    flex: 1 2 0;
+}
+
+ul li span {
+    flex: 3;
+}
