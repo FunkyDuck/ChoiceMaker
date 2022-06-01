@@ -89,7 +89,21 @@ export class ListManagerComponent implements OnInit {
     this.listForm.reset();
   }
 
-  viewList(key: string) {
+  deleteItem(item: string) {
+    var list: List = {name: this.addListKey, data: JSON.parse(localStorage.getItem(this.addListKey)!) };
+    var elems: string[] = [];
 
+    for (let i = 0; i < list.data.length; i++) {
+      if(list.data[i] != item)
+        elems.push(list.data[i]);
+    }
+    elems.push(this.listForm.value.name);
+
+    list.data = elems;
+    list.data.length -= 1;
+    localStorage.setItem(this.addListKey, JSON.stringify(list.data));
+
+    this.storageToList();
+    this.listForm.reset();
   }
 }

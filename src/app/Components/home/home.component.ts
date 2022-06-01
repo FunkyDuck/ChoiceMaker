@@ -26,11 +26,11 @@ export class HomeComponent implements OnInit {
 
   setActive(b: boolean) {
     this.isActive = b;
-    this.item = '';
   }
 
   select(k: string) {
     this.key = k;
+    this.item = '';
   }
 
   choose() {

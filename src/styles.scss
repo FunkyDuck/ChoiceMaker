@@ -4,6 +4,8 @@
 // Variables
 $thGreenMenu: #239b56;
 $thGreenMenuTxt: #d5f5e3;
+$thGreenDelBtn: #b03a2e;
+$thGreenDelTxt:  #fadbd8;
 
 // CSS
 html {
@@ -70,7 +72,13 @@ button {
 
 .largeBtn {
     width: 100%;
-    margin: 1vh 0;
+    margin: 0;
+}
+
+.btnDel {
+    background: $thGreenDelBtn;
+    color: $thGreenDelTxt;
+    padding: 0.25vh 0;
 }
 
 .btnGroup {
@@ -96,13 +104,18 @@ button {
     border-radius: 0 4px 4px 0;
 }
 
+section {
+    margin: 1vh 0;
+}
+
 .box {
     border: $thGreenMenu 2px solid;
     border-radius: 8px;
     color: #239b56;
     font-weight: bold;
-    padding: 1vh 1vw;
-    margin: 1vh 0;
+    font-size: 1.5rem;
+    padding: 2vh 1vw;
+    margin: 2vh 0;
     text-align: center;
 }
 
@@ -122,4 +135,9 @@ ul li > * {
 
 ul li span {
     flex: 3;
+}
+
+ul li span:last-child {
+    margin-left: 2vw;
+    flex: 9;
 }
