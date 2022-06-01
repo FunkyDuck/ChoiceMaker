@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ElementList } from 'src/app/Services/element-list';
 import { List } from 'src/app/Services/list';
 import { F_LIST } from '../list.form';
 
@@ -64,7 +63,6 @@ export class ListManagerComponent implements OnInit {
     for (let i = 0; i < localStorage.length; i++) {
       var newList: List = {name: '', data: []};
       newList.name = localStorage.key(i)!;
-      // newList.data = JSON.parse(JSON.stringify(localStorage.getItem(localStorage.key(i)!)!));
       this.lists.push(newList);
     }
   }

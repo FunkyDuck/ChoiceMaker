@@ -1,7 +1,7 @@
 <main>
     <h1>ChoiceMaker</h1>
 
-    <section>
+    <section class="btnGroup">
         <button (click)="setActive(false)">Saved List</button>
         <button (click)="setActive(true)">Temp List</button>
     </section>
@@ -10,7 +10,15 @@
         <h2>Create temp list</h2>
     </section>
 
-    <section *ngIf="!isActive">
+    <form *ngIf="!isActive">
         <h2>Choose saved list</h2>
+        <select name="list" id="list">
+            <option *ngFor="let item of lists" (click)="select(item.name)" >{{item.name}}</option>
+        </select>
+        <button (click)="choose()">Choose for me</button>
+    </form>
+
+    <section *ngIf="item" class="box">
+        {{item}}
     </section>
 </main>
