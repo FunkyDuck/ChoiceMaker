@@ -87,6 +87,8 @@ export class ListManagerComponent implements OnInit {
 
     this.storageToList();
     this.listForm.reset();
+
+    this.displayList(true, list.name);
   }
 
   deleteItem(item: string) {
@@ -105,5 +107,7 @@ export class ListManagerComponent implements OnInit {
 
     this.storageToList();
     this.listForm.reset();
+
+    this.displayList(true, list.name);
   }
 }
