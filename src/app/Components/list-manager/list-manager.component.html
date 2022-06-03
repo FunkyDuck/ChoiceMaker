@@ -1,12 +1,12 @@
 <main>
-    <h1>Manage List</h1>
+    <h1 class="txtDefault">Manage List</h1>
     <button (click)="displayCreate(!isCreate)" class="largeBtn">
         <span *ngIf="!isCreate">Create List</span>
         <span *ngIf="isCreate">Back</span>
     </button>
 
     <form *ngIf="isCreate" [formGroup]="listForm">
-        <h2>New List</h2>
+        <h2 class="txtDefault">New List</h2>
         <label for="name">List Name</label> :
         <input type="text" name="name" id="name" formControlName="name" value="{{listForm.value.name}}">
         <button (click)="createList()">Create</button>
@@ -31,7 +31,7 @@
         </ul>
 
         <form *ngIf="isAddValue" [formGroup]="listForm">
-            <h2>Add element to list : {{addListKey}}</h2>
+            <h2 class="txtDefault">Add element to list : {{addListKey}}</h2>
             <label for="name">Item</label> :
             <input type="text" name="name" id="name" formControlName="name" value="{{listForm.value.name}}">
             <button (click)="addToList(addListKey)">Add</button>
@@ -39,7 +39,7 @@
 
         <ul *ngIf="isDisplay">
             <li>
-                <h2>{{addListKey}}</h2>
+                <h2 class="txtDefault">{{addListKey}}</h2>
             </li>
             <li *ngFor="let item of itemsList">
                 <button class="btnDel" (click)="deleteItem(item)">

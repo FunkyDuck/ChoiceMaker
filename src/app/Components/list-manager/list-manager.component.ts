@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { List } from 'src/app/Services/list';
 import { F_LIST } from '../list.form';
@@ -8,7 +8,8 @@ import { F_LIST } from '../list.form';
   templateUrl: './list-manager.component.html',
   styleUrls: ['./list-manager.component.scss']
 })
-export class ListManagerComponent implements OnInit {
+export class ListManagerComponent implements OnInit, AfterViewInit {
+
   isCreate: boolean = false;
   isAddValue: boolean = false;
   isDisplay: boolean = false;
@@ -25,10 +26,18 @@ export class ListManagerComponent implements OnInit {
 
   ngOnInit(): void {
     this.storageToList();
+    this.setTheme(localStorage.getItem('theme')!);
+  }
+
+  ngAfterViewInit(): void {
+    this.setTheme(localStorage.getItem('theme')!);
   }
 
   displayCreate(b: boolean) {
     this.isCreate = b;
+    setTimeout(()=>{
+      this.setTheme(localStorage.getItem('theme')!);
+    }, 0);
   }
 
   displayAdd(b: boolean, key: string){
@@ -36,6 +45,9 @@ export class ListManagerComponent implements OnInit {
     this.isDisplay = false;
     this.isAddValue = b;
     this.addListKey = key;
+    setTimeout(()=>{
+      this.setTheme(localStorage.getItem('theme')!);
+    },0);
   }
 
   displayList(b: boolean, key: string){
@@ -47,6 +59,10 @@ export class ListManagerComponent implements OnInit {
     this.itemsList.push('No Data Found...');
     
     this.itemsList = JSON.parse(localStorage.getItem(key)!);
+
+    setTimeout(()=>{
+      this.setTheme(localStorage.getItem('theme')!);
+    },0);
   }
 
   createList() {
@@ -61,9 +77,11 @@ export class ListManagerComponent implements OnInit {
     this.displayAdd(false, '');
     this.lists.length = 0;
     for (let i = 0; i < localStorage.length; i++) {
-      var newList: List = {name: '', data: []};
+      if(localStorage.key(i)!='theme'){
+        var newList: List = {name: '', data: []};
       newList.name = localStorage.key(i)!;
       this.lists.push(newList);
+      }
     }
   }
 
@@ -109,5 +127,29 @@ export class ListManagerComponent implements OnInit {
     this.listForm.reset();
 
     this.displayList(true, list.name);
+  }
+
+  setTheme(c: string = 'default'){
+    var h1 = document.querySelector('h1');
+    var h2 = document.querySelectorAll('h2');
+    var btn = document.querySelectorAll('button');
+
+    h1?.classList.remove('colorDefault', 'txtDefault', 'colorBlue', 'txtBlue', 'colorYellow', 'txtYellow', 'colorRed', 'txtRed', 'btnDelRed', 'colorDark', 'txtDark');
+    h1?.classList.add('txt' + c);
+
+    h2.forEach(function(e){
+      e.classList.remove('colorDefault', 'txtDefault', 'colorBlue', 'txtBlue', 'colorYellow', 'txtYellow', 'colorRed', 'txtRed', 'btnDelRed', 'colorDark', 'txtDark');
+      e.classList.add('txt' + c);
+    });
+    btn.forEach(function(e){
+      if(!e.classList.contains('btnDel')){
+        e.classList.remove('colorDefault', 'txtDefault', 'colorBlue', 'txtBlue', 'colorYellow', 'txtYellow', 'colorRed', 'txtRed', 'btnDelRed', 'colorDark', 'txtDark');
+        e.classList.add('color' + c);
+      }else if(c == 'Red'){
+        e.classList.add('btnDelRed');
+      }else{
+        e.classList.remove('btnDelRed');
+      }
+    });
   }
 }

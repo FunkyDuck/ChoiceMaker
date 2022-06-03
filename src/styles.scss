@@ -6,6 +6,16 @@ $thGreenMenu: #239b56;
 $thGreenMenuTxt: #d5f5e3;
 $thGreenDelBtn: #b03a2e;
 $thGreenDelTxt:  #fadbd8;
+$thBlueMenu:  #2874a6 ;
+$thBlueMenuTxt:  #d6eaf8;
+$thYellowMenu:  #b7950b;
+$thYellowMenuTxt: #fcf3cf;
+$thRedMenu: #b03a2e;
+$thRedMenuTxt:  #fadbd8;
+$thRedDelBtn:  #922b21;
+$thRedDelTxt:   #f2d7d5;
+$thDarkMenu:#212f3d;
+$thDarkMenuTxt: #d5d8dc;
 
 // CSS
 html {
@@ -104,6 +114,10 @@ button {
     border-radius: 0 4px 4px 0;
 }
 
+form .largeBtn {
+    margin-top: 1vh;
+}
+
 section {
     margin: 1vh 0;
 }
@@ -127,6 +141,15 @@ ul {
 ul li {
     display: flex;
     flex-direction: row;
+    border-bottom: $thDarkMenuTxt 1px solid;
+}
+
+ul li:first-child {
+    border-bottom: none;
+}
+
+ul li:last-child {
+    border-bottom: none;
 }
 
 ul li > * {
@@ -140,4 +163,104 @@ ul li span {
 ul li span:last-child {
     margin-left: 2vw;
     flex: 9;
+}
+
+option {
+    color: $thGreenMenu;
+    background: $thGreenMenuTxt;
+}
+
+#theme option:nth-child(2) {
+    color: $thBlueMenu;
+    background: $thBlueMenuTxt;
+}
+
+#theme option:nth-child(3) {
+    color: $thYellowMenu;
+    background: $thYellowMenuTxt;
+}
+
+#theme option:nth-child(4) {
+    color: $thRedMenu;
+    background: $thRedMenuTxt;
+}
+
+#theme option:nth-child(5) {
+    color: $thDarkMenu;
+    background: $thDarkMenuTxt;
+}
+
+.colorDefault {
+    color: $thGreenMenuTxt;
+    background: $thGreenMenu;
+}
+
+.txtDefault {
+    color: $thGreenMenu;
+}
+
+.colorBlue {
+    color: $thBlueMenuTxt;
+    background: $thBlueMenu;
+}
+
+.txtBlue {
+    color: $thBlueMenu;
+}
+
+.colorYellow {
+    color: $thYellowMenuTxt;
+    background: $thYellowMenu;
+}
+
+.txtYellow {
+    color: $thYellowMenu;
+}
+
+.colorRed {
+    color: $thRedMenuTxt;
+    background: $thRedMenu;
+}
+
+.txtRed {
+    color: $thRedMenu;
+}
+
+.btnDelRed {
+    background: $thRedDelBtn;
+    color: $thRedDelTxt
+}
+
+.colorDark {
+    color: $thDarkMenuTxt;
+    background: $thDarkMenu;
+}
+
+.txtDark {
+    color: $thDarkMenu;
+}
+
+.optionDefault {
+    color: $thGreenMenu;
+    background: $thGreenMenuTxt;
+}
+
+.optionBlue {
+    color: $thBlueMenu;
+    background: $thBlueMenuTxt;
+}
+
+.optionYellow {
+    color: $thYellowMenu;
+    background: $thYellowMenuTxt;
+}
+
+.optionRed {
+    color: $thRedMenu;
+    background: $thRedMenuTxt;
+}
+
+.optionDark {
+    color: $thDarkMenu;
+    background: $thDarkMenuTxt;
 }

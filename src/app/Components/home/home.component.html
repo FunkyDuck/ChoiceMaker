@@ -1,5 +1,5 @@
 <main>
-    <h1>ChoiceMaker</h1>
+    <h1 class="txtDefault">ChoiceMaker</h1>
 
     <section class="btnGroup">
         <button (click)="setActive(false)">Saved List</button>
@@ -7,19 +7,19 @@
     </section>
 
     <form *ngIf="isActive" [formGroup]="listForm">
-        <h2>Create temp list</h2>
+        <h2 class="txtDefault">Create temp list</h2>
         <label for="name">Item</label> :
         <input type="text" name="name" id="name" formControlName="name" value="{{listForm.value.name}}">
         <button (click)="addTmpList()">Add</button>
-        <button (click)="chooseTmpList()">Choose for me</button>
+        <button (click)="chooseTmpList()" class="largeBtn">Choose for me</button>
     </form>
 
     <form *ngIf="!isActive">
-        <h2>Choose saved list</h2>
+        <h2 class="txtDefault">Choose saved list</h2>
         <select name="list" id="list">
-            <option *ngFor="let item of lists" (click)="select(item.name)" >{{item.name}}</option>
+            <option *ngFor="let item of lists" (click)="select(item.name)" class="optionDefault">{{item.name}}</option>
         </select>
-        <button (click)="choose()">Choose for me</button>
+        <button (click)="choose()" class="largeBtn">Choose for me</button>
     </form>
 
     <section *ngIf="item" class="box">
