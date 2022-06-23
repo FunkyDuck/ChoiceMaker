@@ -130,6 +130,7 @@ export class ListManagerComponent implements OnInit, AfterViewInit {
   }
 
   setTheme(c: string = 'default'){
+    // var main = document.querySelector('main');
     var h1 = document.querySelector('h1');
     var h2 = document.querySelectorAll('h2');
     var btn = document.querySelectorAll('button');

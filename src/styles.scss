@@ -122,6 +122,10 @@ section {
     margin: 1vh 0;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 .box {
     border: $thGreenMenu 2px solid;
     border-radius: 8px;
